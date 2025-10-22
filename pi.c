@@ -44,12 +44,12 @@ int main(int argc, char** argv)
     printf("Pi is %0.10f\n", Pi0);
     
     // calculate in parallel with integration
-    // start_t = ReadTSC();
-    // double Pi1 = calcPi_P1(num_steps);
-    // end_t = ReadTSC();
-    // printf("Time to calculate Pi in // with %"PRIu32" steps is: %g\n",
-    //        num_steps, ElapsedTime(end_t - start_t));
-    // printf("Pi is %0.10f\n", Pi1);
+    start_t = ReadTSC();
+    double Pi1 = calcPi_P1(num_steps);
+    end_t = ReadTSC();
+    printf("Time to calculate Pi in // with %"PRIu32" steps is: %g\n",
+           num_steps, ElapsedTime(end_t - start_t));
+    printf("Pi is %0.10f\n", Pi1);
 
 
     // // calculate in parallel with Monte Carlo
@@ -97,6 +97,56 @@ double calcPi_P1(int num_steps)
 {
     double pi = 0.0;
     
+
+    // CRITICAL 
+    // double A = -1.0;
+    // double B = 1.0;
+
+    // double h = (B - A) / (double)num_steps;
+    // double sum = 0.0;
+
+    // #pragma omp parallel
+    // {
+    //     double local_sum = 0.0; 
+                
+    //     #pragma omp for nowait
+    //     for (int i = 0; i < num_steps; i++) {
+    //         double x = A + (i + 0.5) * h;
+    //         local_sum += sqrt(1.0 - x * x);
+    //     }
+        
+    //     #pragma omp critical
+    //     {
+    //         sum += local_sum;
+    //     }
+    // }
+
+    // double integral_result = h * sum;
+    // pi = 2.0 * integral_result;
+
+    // ATOMIC
+    double A = -1.0;
+    double B = 1.0;
+    double h = (B - A) / (double)num_steps;
+    double sum = 0.0;
+
+    #pragma omp parallel
+    {
+        double local_sum = 0.0;
+        
+        #pragma omp for nowait
+        for (int i = 0; i < num_steps; i++) {
+            double x = A + (i + 0.5) * h;
+            local_sum += sqrt(1.0 - x * x);
+        }
+
+        #pragma omp atomic
+        sum += local_sum;
+    }
+
+    double integral_result = h * sum;
+    pi = 2.0 * integral_result;
+
     return pi;
 }
 

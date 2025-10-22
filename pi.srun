@@ -2,8 +2,8 @@
 #SBATCH --account=cis431_531		    ### your ‘charge’ account 
 #SBATCH --partition=compute             ### queue to submit to
 #SBATCH --job-name=compu_pi             ### job name
-#SBATCH --output=output/comp_pi_%A.out  ### file in which to store job stdout
-#SBATCH --error=output/comp_pi_%A.err   ### file in which to store job stderr
+#SBATCH --output=output/serial_pi_1.out  ### file in which to store job stdout
+#SBATCH --error=output/serial_pi_1.err   ### file in which to store job stderr
 #SBATCH --time=00:15:00                 ### wall-clock time limit, in minutes
 #SBATCH --mem=16000M                    ### memory limit per node (K|M|G|T)
 #SBATCH --nodes=1                       ### number of nodes to use
