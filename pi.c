@@ -73,14 +73,23 @@ void usage(int argc, char** argv)
 double calcPi_Serial(int num_steps)
 {
     double pi = 0.0;
-    double h = 1.0 / (double)num_steps;
+    
+    double A = -1.0;
+    double B = 1.0;
+    
+    double h = (B - A) / (double)num_steps;
     double sum = 0.0;
 
     for (int i = 0; i < num_steps; i++) {
-        double x = (i + 0.5) * h;
-        sum += 4.0 / (1.0 + x * x);
+        
+        double x = A + (i + 0.5) * h;
+        
+        sum += sqrt(1.0 - x * x);
     }
-    pi = h * sum;
+
+    double integral_result = h * sum;
+    pi = 2.0 * integral_result;
+
     return pi;
 }
 
