@@ -52,13 +52,13 @@ int main(int argc, char** argv)
     printf("Pi is %0.10f\n", Pi1);
 
 
-    // // calculate in parallel with Monte Carlo
-    // start_t = ReadTSC();
-    // double Pi2 = calcPi_P2(num_steps);
-    // end_t = ReadTSC();
-    // printf("Time to calculate Pi in // with %"PRIu32" guesses is: %g\n",
-    //        num_steps, ElapsedTime(end_t - start_t));
-    // printf("Pi is %0.10f\n", Pi2);
+    // calculate in parallel with Monte Carlo
+    start_t = ReadTSC();
+    double Pi2 = calcPi_P2(num_steps);
+    end_t = ReadTSC();
+    printf("Time to calculate Pi in // with %"PRIu32" guesses is: %g\n",
+           num_steps, ElapsedTime(end_t - start_t));
+    printf("Pi is %0.10f\n", Pi2);
 
     
     return 0;
@@ -132,14 +132,16 @@ double calcPi_P1(int num_steps)
 
     #pragma omp parallel
     {
-        double local_sum = 0.0;
+        double local_sum = 0.0; // Private local accumulator
         
+        // Loop is distributed, each thread fills its local_sum
         #pragma omp for nowait
         for (int i = 0; i < num_steps; i++) {
             double x = A + (i + 0.5) * h;
             local_sum += sqrt(1.0 - x * x);
         }
 
+        // Only synchronize ONCE per thread using atomic
         #pragma omp atomic
         sum += local_sum;
     }
@@ -152,7 +154,31 @@ double calcPi_P1(int num_steps)
 
 double calcPi_P2(int num_steps)
 {
-    double pi = 0.0;
+    
+    // double pi = 0.0;
+
+    
+    int hits = 0;
+    
+    #pragma omp parallel reduction(+:hits)
+    {
+        
+        unsigned int seed = (unsigned int)time(NULL) + omp_get_thread_num();
+        
+        #pragma omp for
+        for (int i = 0; i < num_steps; i++) {
+            
+            double x = (double)rand_r(&seed) / (double)RAND_MAX;
+            double y = (double)rand_r(&seed) / (double)RAND_MAX;
+
+            if (x * x + y * y <= 1.0) {
+                hits++;
+            }
+        }
+    }
+
+    
+    double pi = 4.0 * ((double)hits / (double)num_steps);
 
     return pi;
 }
