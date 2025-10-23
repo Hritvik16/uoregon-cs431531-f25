@@ -99,55 +99,55 @@ double calcPi_P1(int num_steps)
     
 
     // CRITICAL 
-    // double A = -1.0;
-    // double B = 1.0;
-
-    // double h = (B - A) / (double)num_steps;
-    // double sum = 0.0;
-
-    // #pragma omp parallel
-    // {
-    //     double local_sum = 0.0; 
-                
-    //     #pragma omp for nowait
-    //     for (int i = 0; i < num_steps; i++) {
-    //         double x = A + (i + 0.5) * h;
-    //         local_sum += sqrt(1.0 - x * x);
-    //     }
-        
-    //     #pragma omp critical
-    //     {
-    //         sum += local_sum;
-    //     }
-    // }
-
-    // double integral_result = h * sum;
-    // pi = 2.0 * integral_result;
-
-    // ATOMIC
     double A = -1.0;
     double B = 1.0;
+
     double h = (B - A) / (double)num_steps;
     double sum = 0.0;
 
     #pragma omp parallel
     {
-        double local_sum = 0.0; // Private local accumulator
-        
-        // Loop is distributed, each thread fills its local_sum
+        double local_sum = 0.0; 
+                
         #pragma omp for nowait
         for (int i = 0; i < num_steps; i++) {
             double x = A + (i + 0.5) * h;
             local_sum += sqrt(1.0 - x * x);
         }
-
-        // Only synchronize ONCE per thread using atomic
-        #pragma omp atomic
-        sum += local_sum;
+        
+        #pragma omp critical
+        {
+            sum += local_sum;
+        }
     }
 
     double integral_result = h * sum;
     pi = 2.0 * integral_result;
+
+    // ATOMIC
+    // double A = -1.0;
+    // double B = 1.0;
+    // double h = (B - A) / (double)num_steps;
+    // double sum = 0.0;
+
+    // #pragma omp parallel
+    // {
+    //     double local_sum = 0.0; // Private local accumulator
+        
+    //     // Loop is distributed, each thread fills its local_sum
+    //     #pragma omp for nowait
+    //     for (int i = 0; i < num_steps; i++) {
+    //         double x = A + (i + 0.5) * h;
+    //         local_sum += sqrt(1.0 - x * x);
+    //     }
+
+    //     // Only synchronize ONCE per thread using atomic
+    //     #pragma omp atomic
+    //     sum += local_sum;
+    // }
+
+    // double integral_result = h * sum;
+    // pi = 2.0 * integral_result;
 
     return pi;
 }
@@ -157,7 +157,6 @@ double calcPi_P2(int num_steps)
     
     // double pi = 0.0;
 
-    
     int hits = 0;
     
     #pragma omp parallel reduction(+:hits)
@@ -177,7 +176,6 @@ double calcPi_P2(int num_steps)
         }
     }
 
-    
     double pi = 4.0 * ((double)hits / (double)num_steps);
 
     return pi;
