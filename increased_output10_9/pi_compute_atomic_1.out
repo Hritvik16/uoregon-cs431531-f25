@@ -1,0 +1,162 @@
+Starting serial experiment for 20 runs with 1000000000 steps/guesses.
+Threads (OMP_NUM_THREADS): 1
+--- Run 1/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92148
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92123
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5232
+Pi is 3.1415845120
+--- Run 2/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92235
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92199
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5298
+Pi is 3.1415886000
+--- Run 3/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.9221
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92211
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5299
+Pi is 3.1415851800
+--- Run 4/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92297
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92209
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5317
+Pi is 3.1415920320
+--- Run 5/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.9217
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92222
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5317
+Pi is 3.1415815360
+--- Run 6/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92252
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92194
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5649
+Pi is 3.1415838440
+--- Run 7/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92286
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92248
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5145
+Pi is 3.1415872200
+--- Run 8/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92201
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92174
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5172
+Pi is 3.1415887600
+--- Run 9/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92185
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.9227
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5176
+Pi is 3.1415865920
+--- Run 10/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92199
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92374
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5148
+Pi is 3.1415858160
+--- Run 11/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.9218
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92216
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5155
+Pi is 3.1415931720
+--- Run 12/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92234
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92181
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5182
+Pi is 3.1415854600
+--- Run 13/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92176
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92222
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5174
+Pi is 3.1415884240
+--- Run 14/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.9219
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.9214
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5166
+Pi is 3.1415893920
+--- Run 15/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92225
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.9218
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5173
+Pi is 3.1415864600
+--- Run 16/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92196
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92112
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5138
+Pi is 3.1415885040
+--- Run 17/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.9214
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92132
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.513
+Pi is 3.1415945120
+--- Run 18/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.9216
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92155
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5142
+Pi is 3.1415870360
+--- Run 19/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.92118
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92121
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.5147
+Pi is 3.1415841200
+--- Run 20/20 ---
+The first 10 digits of Pi are 3.1415926535
+Time to calculate Pi serially with 1000000000 steps is: 2.9213
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 steps is: 2.92122
+Pi is 3.1415926536
+Time to calculate Pi in // with 1000000000 guesses is: 12.512
+Pi is 3.1415917760
