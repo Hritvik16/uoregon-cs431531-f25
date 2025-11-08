@@ -1,0 +1,4 @@
+Time to do O(N-1) prefix sum on a 33554432 elements: 0.0311771 (s)
+Time to do O(NlogN) //prefix sum on a 33554432 elements: 0.0804323 (s)
+Time to do 2(N-1) //prefix sum on a 33554432 elements: 0.0440285 (s)
+Pass

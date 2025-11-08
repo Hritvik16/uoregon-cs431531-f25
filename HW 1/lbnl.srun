@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --account=cis431_531 ### your ‘charge’ account
+#SBATCH --partition=compute ### queue to submit to
+#SBATCH --job-name=my_test ### job name
+#SBATCH --output=output/test_%A.out ### file in which to store job stdout
+#SBATCH --error=output/test_%A.err ### file in which to store job stderr
+#SBATCH --time=15 ### wall-clock time limit, in minutes
+#SBATCH --mem=64000M ### memory limit per node (K | M | G | T)
+#SBATCH --nodes=1 ### number of nodes to use
+#SBATCH --ntasks-per-node=1 ### number of MPI tasks to launch per node
+#SBATCH --cpus-per-task=14 ### number of CPUs for each task

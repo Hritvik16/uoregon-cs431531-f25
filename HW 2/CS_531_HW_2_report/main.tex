@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{CS 531 HW 2}
+\author{Hritvik}
+\date{November 8, 2025}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+Prefix sum is a common algorithm used for sorting, histogram generation, and data compaction. 
+The goal of this experiment is to analyze the performance of three implementations:
+\begin{itemize}
+    \item Serial prefix sum (\(O(N)\))
+    \item Parallel prefix sum using the \(O(N\log N)\) algorithm
+    \item Parallel prefix sum using an optimized \(O(N)\) approach (Balanced Binary Tree)
+\end{itemize}
+
+\section{Experimental Setup}
+All experiments were performed using an input size of \(N = 33{,}554{,}432\) elements. 
+Each implementation was tested with 1, 4, 16, 32, 64, and 128 threads. 
+Execution times were measured in seconds.
+
+\section{Results}
+Table~\ref{tab:times} summarizes the execution times for each implementation.
+
+\begin{table}[H]
+\centering
+\caption{Execution time (seconds) for prefix sum implementations}
+\label{tab:times}
+\begin{tabular}{|c|c|c|c|}
+\hline
+CPUs & Serial \(O(N)\) & Parallel \(O(N\log N)\) & Parallel \(O(N)\) \\
+\hline
+1 & 0.0292 & 0.3528 & 0.1693 \\
+4 & 0.0302 & 0.1169 & 0.0610 \\
+16 & 0.0312 & 0.0804 & 0.0440 \\
+32 & 0.0306 & 0.0352 & 0.0168 \\
+64 & 0.0297 & 0.0314 & 0.0109 \\
+128 & 0.0242 & 0.0276 & 0.0081 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{execution_time_vs_cpus.png}
+\caption{Execution Time vs Number of CPUs}
+\label{fig:time}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{speedup_vs_cpus.png}
+\caption{Speedup vs Number of CPUs (Baseline = Serial time)}
+\label{fig:speedup}
+\end{figure}
+
+\section{Analysis}
+As shown in Figure~\ref{fig:time}, the parallel implementations significantly reduce execution time as the number of CPUs increases.
+The \(O(N)\) parallel version achieves the fastest performance due to its better work efficiency compared to the \(O(N\log N)\) method.
+
+Figure~\ref{fig:speedup} illustrates near-linear speedup up to 32 CPUs, with diminishing returns beyond that point.
+
+Overall, the \(O(N)\) parallel prefix sum shows excellent scalability and efficiency compared to both the serial and \(O(N\log N)\) implementations.
+
+\section{Conclusion}
+This experiment demonstrates the advantages of parallelization in prefix sum computation. The optimized \(O(N)\) implementation consistently outperformed the \(O(N\log N)\) version, achieving more than a 3x speedup at 128 CPUs.
+
+\end{document}
