@@ -1,0 +1,34 @@
+-----------------------------------------------------
+Matrix name:     cant/cant.mtx
+Matrix size:     62451 x 62451 => 2034917
+-----------------------------------------------------
+Is matrix:       1
+Is sparse:       1
+-----------------------------------------------------
+Is complex:      0
+Is real:         1
+Is integer:      0
+Is pattern only: 0
+-----------------------------------------------------
+Is general:      0
+Is symmetric:    1
+Is skewed:       0
+Is hermitian:    0
+-----------------------------------------------------
+Matrix file name: cant/cant.mtx ... file loaded.
+Expanding symmetric matrix ... done
+  Total # of non-zeros is 4007383
+Vector file name: cant/b.mtx ... file loaded
+Calculating COO SpMV ... done
+Calculating COO SpMV ... done
+Calculating COO SpMV ... done
+Calculating COO SpMV ... done
+Result file name: ./ans_4ranks_omp7.mtx ... file saved
+Module		Time
+Load		0.688006
+Vec Bcast	0.001381
+Mat Scatter	0.027877
+Lock Init	0.000337
+COO SpMV	0.002158
+Res Reduce	0.001642
+Store		0.025365
